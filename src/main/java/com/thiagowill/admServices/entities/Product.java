@@ -14,7 +14,7 @@ public class Product implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+	private String date;
 	private String productName;
 	private int quantity;
 	private double value;
@@ -23,9 +23,10 @@ public class Product implements Serializable {
 		
 	}
 
-	public Product(int id, String productName, int quantity, double value) {
+	public Product(int id, String date, String productName, int quantity, double value) {
 		super();
 		this.id = id;
+		this.date =  date;
 		this.productName = productName;
 		this.quantity = quantity;
 		this.value = value;
@@ -37,6 +38,15 @@ public class Product implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getProductName() {
@@ -62,7 +72,10 @@ public class Product implements Serializable {
 	public void setValue(double value) {
 		this.value = value;
 	}
-
+	
+	public String getValueInBRL() {
+		return String.format("R$ %.2f", value);
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

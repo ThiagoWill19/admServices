@@ -2,6 +2,8 @@
 <html lang="pt-bt" xmlns:th="http://www.thymeleaf.org">
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -33,9 +35,9 @@
 					<tbody>
 						<tr th:each="client : ${clientes}">
 							<th scope="row" th:text="${client.id}"></th>
-							<th><a class="fw-bold text-decoration-none" href="#" th:text="${client.name}"></th>
-							<th><a class=" btn badge rounded-pill bg-danger text-decoration-none" th:href="@{/remover{id}(id = ${client.id})}"
-								onclick="return confirm(' Remover este cliente?');">X</a></th>
+							<th><a class="fw-bold text-decoration-none" th:href="@{/clientes/{id}(id = ${client.id})}" th:text="${client.name}"></th>
+							<th><a class=" btn badge rounded-pill bg-danger text-decoration-none material-icons" th:href="@{/remover{id}(id = ${client.id})}"
+								onclick="return confirm(' Remover este cliente?');">clear</a></th>
 						</tr>
 					</tbody>
 				</table>

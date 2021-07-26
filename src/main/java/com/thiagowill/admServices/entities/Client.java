@@ -60,6 +60,15 @@ public class Client implements Serializable {
 	public void setProductList(List<Product> productList) {
 		this.productList = productList;
 	}
+	
+	public String totalProducts() {
+		double total = 0;
+		for(Product product : productList) {
+			total += (product.getQuantity() * product.getValue());
+		}
+		
+		return String.format("Total: %.2f", total);
+	}
 
 	@Override
 	public int hashCode() {
