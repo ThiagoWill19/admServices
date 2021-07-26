@@ -51,10 +51,10 @@ public class ClientController {
 		return "redirect:/clientes/"+ client.getId();
 	}
 	
-	@PostMapping("/clientes/{id}/remover")
-	public String removeProduct(@PathVariable("id")int id, Product product) {
+	@PostMapping("/clientes/{id}/remover{idp}")
+	public String removeProduct(@PathVariable("id")int id, @PathVariable("idp") int idp) {
 		Client client = clientService.findById(id);
-		client.getProductList().remove(product);
+		client.getProductList().remove(idp);
 		clientService.save(client);
 		return "redirect:/clientes/"+ client.getId();
 	}
