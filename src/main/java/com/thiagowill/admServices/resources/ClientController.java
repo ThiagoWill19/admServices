@@ -61,6 +61,7 @@ public class ClientController {
 		Product product = productService.findById(id);
 		client.getProductList().remove(product);
 		clientService.save(client);
+		productService.deleteById(id);
 		return "redirect:/clientes/" + idOb;
 	}
 }
