@@ -21,18 +21,20 @@ public class Product implements Serializable {
 	private String productName;
 	private int quantity;
 	private double value;
+	private boolean status;
 	
 	public Product () {
 		
 	}
 
-	public Product(int id, String date, String productName, int quantity, double value) {
+	public Product(int id, String date, String productName, int quantity, double value, boolean status) {
 		super();
 		this.id = id;
 		this.date =  date;
 		this.productName = productName;
 		this.quantity = quantity;
 		this.value = value;
+		this.status = status;
 	}
 
 	public int getId() {
@@ -91,6 +93,15 @@ public class Product implements Serializable {
 	public String getValueInBRL() {
 		return String.format("R$ %.2f", value);
 	}
+	
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
