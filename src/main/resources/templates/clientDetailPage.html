@@ -28,9 +28,13 @@
   			</ol>
 		</nav>
 
-		<a class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#cadastroModal">Adc produto</a>
+		<div class="row">
+			<div class="col-6"><a class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#cadastroModal">Adc produto</a></div>
+			
+			<div class="col-6"><a class="btn btn-outline-primary mt-4" data-bs-toggle="modal" data-bs-target="#listaModal" >Mostrar todos</a></div>
+		</div>
 		
-		<h5 class="mt-3 fw-bold">Produtos</h5>
+		<h5 class="mt-3 fw-bold">Produtos em aberto</h5>
 		
 		<table class="table table-striped mt-3">
 			<thead>
@@ -98,6 +102,21 @@
 						</div>
 					</form>
 
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="modal fade" id="listaModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Todos os produtos</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
 				</div>
 			</div>
 		</div>
