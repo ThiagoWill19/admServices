@@ -1,6 +1,9 @@
 package com.thiagowill.admServices.entities;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,6 +46,18 @@ public class Product implements Serializable {
 	
 	public String getDate() {
 		return date;
+	}
+	
+	public String getDateForm() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		try {
+			date = format.parse(this.date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		format.applyPattern("dd/MM/yyyy");
+		return format.format(date);
 	}
 
 	public void setDate(String date) {

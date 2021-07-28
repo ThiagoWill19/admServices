@@ -45,7 +45,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="product : ${client.productList}">
-					<th scope="row"><span th:text="${product.date}"></span></th>
+					<th scope="row"><span th:text="${product.getDateForm()}"></span></th>
 					<th th:text="${product.productName}"></th>
 					<th th:text="${product.quantity}"></th>
 					<th th:text="${product.getValueInBRL()}"></th>
