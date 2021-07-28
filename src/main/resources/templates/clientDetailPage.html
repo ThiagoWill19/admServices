@@ -39,6 +39,7 @@
 					<th scope="col">Produto</th>
 					<th scope="col">QNT</th>
 					<th scope="col">Valor</th>
+					<th scope="col"></th>
 					
 				</tr>
 			</thead>
@@ -48,6 +49,8 @@
 					<th th:text="${product.productName}"></th>
 					<th th:text="${product.quantity}"></th>
 					<th th:text="${product.getValueInBRL()}"></th>
+					<th><a class=" btn badge rounded-pill btn-danger btn-sm" th:href="@{/produto/remover/(id=${product.id}, idob=${client.id})}"
+						onclick="return confirm(' Remover este produto?');">x</a></th>
 				</tr>
 			</tbody>
 		</table>

@@ -5,17 +5,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.thiagowill.admServices.entities.Client;
 import com.thiagowill.admServices.entities.Product;
 import com.thiagowill.admServices.services.ClientService;
+import com.thiagowill.admServices.services.ProductService;
 
 @Controller
 public class ClientController {
 	
 	@Autowired
 	private ClientService clientService;
+	@Autowired
+	private ProductService productService;
 	
 	@GetMapping("/clientes")
 	public ModelAndView clientPage() {
@@ -51,11 +55,12 @@ public class ClientController {
 		return "redirect:/clientes/"+ client.getId();
 	}
 	
-	@PostMapping("/clientes/{id}/remover{idp}")
-	public String removeProduct(@PathVariable("id")int id, @PathVariable("idp") int idp) {
-		Client client = clientService.findById(id);
-		client.getProductList().remove(idp);
+	@GetMapping("/produto/remover/")
+	public String removeProduct(@RequestParam("id") int id, @RequestParam("idob") int idOb) {
+		Client client = clientService.findById(idOb);
+		Product product = productService.findById(id);
+		client.getProductList().remove(product);
 		clientService.save(client);
-		return "redirect:/clientes/"+ client.getId();
+		return "redirect:/clientes/" + idOb;
 	}
 }
